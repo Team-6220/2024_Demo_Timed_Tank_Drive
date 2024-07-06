@@ -5,6 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+// import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -12,6 +13,10 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.TalonSRXConfiguration;
 
+// import edu.wpi.first.math.estimator.DifferentialDrivePoseEstimator;
+// import edu.wpi.first.math.geometry.Rotation2d;
+// import edu.wpi.first.math.kinematics.DifferentialDriveKinematics;
+// import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.XboxController;
 
 /**
@@ -35,6 +40,12 @@ public class Robot extends TimedRobot {
   TalonSRX right_main = new TalonSRX(3);//TODO: change device ID accordingly
   TalonSRX right_folw = new TalonSRX(4);//TODO: change device ID accordingly
 
+  // Field2d bot_Pose = new Field2d();
+
+  // double trackWidth = Units.inchesToMeters(10);//TODO: adjust base on each robot
+  // DifferentialDriveKinematics differentialDriveKinematics = new DifferentialDriveKinematics(trackWidth);
+  // DifferentialDrivePoseEstimator poseEstimator;
+
   XboxController controller = new XboxController(0); //TODO: get the port right on Driver Station
   @Override
   public void robotInit() {
@@ -56,6 +67,8 @@ public class Robot extends TimedRobot {
 
     left_folw.follow(left_main);
     right_folw.follow(right_main);
+
+    // poseEstimator = new DifferentialDrivePoseEstimator(differentialDriveKinematics, new Rotation2d(), kDefaultPeriod, kDefaultPeriod, null);
   }
 
   /**
